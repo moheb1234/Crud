@@ -20,29 +20,6 @@ class PersonController
         $this->helper = new PersonHelper($db);
     }
 
-    public function switcher($uri, $request)
-    {
-        switch ($uri) {
-            case Actions::CREATE:
-                $this->createAction($request);
-                break;
-            case Actions::UPDATE:
-                $this->updateAction($request);
-                break;
-            case Actions::READ:
-                $this->readAction($request);
-                break;
-            case Actions::READ_ALL:
-                $this->readAllAction($request);
-                break;
-            case Actions::DELETE:
-                $this->deleteAction($request);
-                break;
-            default:
-                $this->createAction($request);
-        }
-    }
-
     public function createAction($request)
     {
         $firstname = $request['firstName'];
@@ -57,7 +34,13 @@ class PersonController
 
     public function updateAction($request)
     {
-
+        $firstname = $request['firstName'];
+        $lastname = $request['lastName'];
+        $username = $request['username'];
+        if ($this->helper->update($firstname, $lastname, $username))
+            echo 'person updated successfully';
+        else
+            echo 'error';
     }
 
     public function readAction($request)

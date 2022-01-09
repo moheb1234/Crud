@@ -48,9 +48,14 @@ class PersonHelper
         return null;
     }
 
-    public function update()
+    public function update($firstname, $lastname, $username): bool
     {
-
+        $query = "UPDATE person
+                  SET firstname = '$firstname' , lastname = '$lastname' , username = '$username'
+                   WHERE username = '$username'";
+        if ($this->db->query($query))
+            return true;
+        return false;
     }
 
     public function delete($username): bool
@@ -61,7 +66,8 @@ class PersonHelper
         return false;
     }
 
-    public function closeConnection(){
+    public function closeConnection()
+    {
         $this->db->close();
     }
 }

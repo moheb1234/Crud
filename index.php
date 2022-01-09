@@ -18,5 +18,7 @@ if (isset($_GET['read_all']))
     $controller->readAllAction($request);
 if (isset($_POST['delete']))
     $controller->deleteAction($request);
+if (isset($_POST['update']))
+    $controller->updateAction($request);
 
 
