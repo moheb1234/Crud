@@ -25,7 +25,6 @@ class PersonHelper
         if ($this->db->query($query))
             return true;
         return false;
-
     }
 
     public function fetch(int $id)

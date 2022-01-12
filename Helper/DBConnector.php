@@ -7,7 +7,7 @@ use mysqli;
 
 class DBConnector
 {
-//mysql
+
     /** @var mysqli $db */
     private $db;
 
@@ -25,6 +25,7 @@ class DBConnector
             throw new Exception("some thing is wrong");
         }
     }
+
     /**
      * @return false|mysqli|null
      */

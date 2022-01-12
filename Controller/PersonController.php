@@ -19,6 +19,29 @@ class PersonController
     {
         $this->helper = new PersonHelper($db);
     }
+    public function switcher($pathVar,$request)
+    {
+        switch ($pathVar)
+        {
+            case Actions::CREATE:
+                $this->createAction($request);
+                break;
+            case Actions::UPDATE:
+                $this->updateAction($request);
+                break;
+            case Actions::READ:
+                $this->readAction($request);
+                break;
+            case Actions::READ_ALL:
+                $this->readAllAction();
+                break;
+            case Actions::DELETE:
+                $this->deleteAction($request);
+                break;
+            default:
+                break;
+        }
+    }
 
     public function createAction($request)
     {
@@ -57,7 +80,7 @@ class PersonController
         $this->helper->closeConnection();
     }
 
-    public function readAllAction($request)
+    public function readAllAction()
     {
         $result = $this->helper->fetchAll();
         if ($result != null)

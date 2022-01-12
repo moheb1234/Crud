@@ -8,7 +8,7 @@
 <body>
 <div class="container">
     <div class="title">Create</div>
-    <form action="index.php" method="post">
+    <form action="http://127.0.0.1:8000/create" method="post">
         <label>First Name:
             <input required="required" name="firstName" type="text">
         </label>
@@ -23,21 +23,21 @@
 </div>
 <div class="container">
     <div class="title">Read</div>
-    <form action="index.php" method="get">
+    <form action="http://127.0.0.1:8000/read" method="get">
         <label>Person ID:
-            <input name="id" required="required" type="number">
+            <input name="id" type="text">
         </label>
         <button type="submit" name="read">Get</button>
     </form>
     <hr>
     <div class="title">Read All</div>
-    <form action="index.php" method="get">
+    <form action="http://127.0.0.1:8000/read_all" method="get">
         <button type="submit" name="read_all">Get All</button>
     </form>
 </div>
 <div class="container">
     <div class="title">Update</div>
-    <form action="index.php" method="post">
+    <form action="http://127.0.0.1:8000/update" method="post">
         <label>First Name:
             <input name="firstName" type="text">
         </label>
@@ -52,7 +52,7 @@
 </div>
 <div class="container">
     <div class="title">Delete</div>
-    <form action="index.php" method="post">
+    <form action="http://127.0.0.1:8000/delete" method="post">
         <label>Username:
             <input required="required" name="username" type="text">
         </label>

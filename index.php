@@ -5,20 +5,15 @@ use CRUD\Helper\DBConnector;
 
 
 include ("loader.php");
-
 $db = new DBConnector();
-$controller = new PersonController($db);
 $request = $_REQUEST;
 
-if (isset($_POST['create']))
-    $controller->createAction($request);
+$controller = new PersonController($db);
+$controller->switcher($_SERVER['REQUEST_URI'],$request);
+
+// problem with get methods for parameters in uri
 if (isset($_GET['read']))
     $controller->readAction($request);
 if (isset($_GET['read_all']))
-    $controller->readAllAction($request);
-if (isset($_POST['delete']))
-    $controller->deleteAction($request);
-if (isset($_POST['update']))
-    $controller->updateAction($request);
-
+    $controller->readAllAction();
 
